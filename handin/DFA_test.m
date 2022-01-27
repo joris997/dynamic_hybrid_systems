@@ -1,0 +1,95 @@
+clear; close; clc;
+
+in = [1 0 0 0 0 0 0 0;
+      1 1 0 0 0 0 0 0;
+      0 0 1 0 0 1 0 0;
+      0 0 0 0 1 0 1 0;
+      0 1 1 1 1 1 1 0;
+      0 0 0 0 0 0 0 1];
+  
+out = [];
+for i = 1:size(in,1)
+    inTS = [linspace(0,7,8)' in(i,:)'];
+    outTS = sim('DFA',7);
+    out = [out;
+           outTS.two_1.Data'];
+end
+
+%%
+figure
+subplot(5,3,1)
+plot(linspace(0,7,8),in(1,:),'bo')
+grid on
+ylabel('input [-]')
+set(gca,'FontSize',10)
+subplot(5,3,4)
+plot(outTS.two_1.Time,out(1,:),'ro')
+grid on
+xlabel('timestep [-]')
+ylabel('output [-]')
+set(gca,'FontSize',10)
+
+subplot(5,3,2)
+plot(linspace(0,7,8),in(2,:),'bo')
+grid on
+ylabel('input [-]')
+set(gca,'FontSize',10)
+subplot(5,3,5)
+plot(outTS.two_1.Time,out(2,:),'ro')
+grid on
+xlabel('timestep [-]')
+ylabel('output [-]')
+set(gca,'FontSize',10)
+
+subplot(5,3,3)
+plot(linspace(0,7,8),in(3,:),'bo')
+grid on
+ylabel('input [-]')
+set(gca,'FontSize',10)
+subplot(5,3,6)
+plot(outTS.two_1.Time,out(3,:),'ro')
+grid on
+xlabel('timestep [-]')
+ylabel('output [-]')
+set(gca,'FontSize',10)
+
+
+
+
+subplot(5,3,10)
+plot(linspace(0,7,8),in(4,:),'bo')
+grid on
+ylabel('input [-]')
+set(gca,'FontSize',10)
+subplot(5,3,13)
+plot(outTS.two_1.Time,out(4,:),'ro')
+grid on
+xlabel('timestep [-]')
+ylabel('output [-]')
+set(gca,'FontSize',10)
+
+subplot(5,3,11)
+plot(linspace(0,7,8),in(5,:),'bo')
+grid on
+ylabel('input [-]')
+set(gca,'FontSize',10)
+subplot(5,3,14)
+plot(outTS.two_1.Time,out(5,:),'ro')
+grid on
+xlabel('timestep [-]')
+ylabel('output [-]')
+set(gca,'FontSize',10)
+
+subplot(5,3,12)
+plot(linspace(0,7,8),in(6,:),'bo')
+grid on
+ylabel('input [-]')
+set(gca,'FontSize',10)
+subplot(5,3,15)
+plot(outTS.two_1.Time,out(6,:),'ro')
+grid on
+xlabel('timestep [-]')
+ylabel('output [-]')
+set(gca,'FontSize',10)
+
+sgtitle('DFA simulations for velocity exceeding')

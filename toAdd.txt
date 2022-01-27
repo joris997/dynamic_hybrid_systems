@@ -1,0 +1,5 @@
+plot motor energy and kinetic + potential energy
+
+loss of motor is just a resistance
+
+for a 10 use some of the recommended python sim software
